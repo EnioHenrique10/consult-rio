@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Saúde</title>
+    <style>
+        /* Estilos para o modal */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: hidden; 
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .carousel {
+            position: relative;
+            width: 80%; 
+            max-width: 700px;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .carousel img {
+            width: 100%;
+            display: none; /* Inicialmente ocultar todas as imagens */
+        }
+        .carousel img.active {
+            display: block; /* Mostrar apenas a imagem ativa */
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 30px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+        /* Estilos para as imagens em linha */
+        .media-container {
+            display: flex; /* Usar flexbox para alinhar as imagens */
+            justify-content: center; /* Centralizar as imagens */
+            gap: 10px; /* Espaçamento entre as imagens */
+            margin-bottom: 20px; /* Espaçamento abaixo das imagens */
+        }
+        .media-container img {
+            width: 200px; /* Largura fixa para as imagens */
+            cursor: pointer; /* Cursor de mão ao passar sobre as imagens */
+            transition: transform 0.2s; /* Transição suave ao passar o mouse */
+        }
+        .media-container img:hover {
+            transform: scale(1.05); /* Aumentar um pouco ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="homes" href="../home/Home.html">Home</a>
+        <h1>Mente Tranquila</h1>
+        <nav>
+            <ul>
+                <li><a href="#audios">Áudios</a></li>
+                <li><a href="#imagens">Imagens</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="audios">
+            <h2>Áudios</h2>
+            <div class="media-container">
+                <audio controls>
+                    <source src="../imgs/elevate158.reiki cura relaxamento.m4a" type="audio/mpeg">
+                    Seu navegador não suporta áudio.
+                </audio>
+                <audio controls>
+                    <source src="audio2.mp3" type="audio/mpeg">
+                    Seu navegador não suporta áudio.
+                </audio>
+            </div>
+        </section>
+
+        <section id="imagens">
+            <h2>Imagens</h2>
+            <div class="media-container">
+                <img src="../imgs/1728338849607.jpg" alt="Descrição da imagem 1" onclick="openCarousel(0)" />
+                <img src="../imgs/1728338849622.jpg" alt="Descrição da imagem 2" onclick="openCarousel(1)" />
+                <img src="../imgs/1728338849644.jpg" alt="Descrição da imagem 3" onclick="openCarousel(2)" />
+            </div>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre a Saúde Mental</h2>
+            <p>A saúde mental é um aspecto fundamental do bem-estar e refere-se ao estado emocional, psicológico e social de uma pessoa. Através de recursos e informações, buscamos ajudar a cuidar da saúde mental de todos.</p>
+        </section>
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <div id="modal" class="modal">
+        <div class="carousel">
+            <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
+            <img class="carousel-image active" src="../imgs/1728338849607.jpg" alt="Descrição da imagem 1">
+            <img class="carousel-image" src="../imgs/1728338849622.jpg" alt="Descrição da imagem 2">
+            <img class="carousel-image" src="../imgs/1728338849644.jpg" alt="Descrição da imagem 3">
+            <span class="next" onclick="changeSlide(1)">&#10095;</span>
+        </div>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+
+        function openCarousel(index) {
+            document.getElementById("modal").style.display = "block";
+            currentSlideIndex = index;
+            showSlide(currentSlideIndex);
+        }
+
+        function closeCarousel() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel-image');
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function changeSlide(n) {
+            const slides = document.querySelectorAll('.carousel-image');
+            currentSlideIndex = (currentSlideIndex + n + slides.length) % slides.length;
+            showSlide(currentSlideIndex);
+        }
+
+        // Fechar o modal ao clicar fora da imagem
+        window.onclick = function(event) {
+            const modal = document.getElementById("modal");
+            if (event.target == modal) {
+                closeCarousel();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat de Comunicação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #b8d4c9, #b28e6c, #846f5e, #9d7166);
+        }
+
+        a {
+    color: #f5eceb; /* Define a cor do texto */
+    text-decoration: none; /* Remove o sublinhado */
+    border: 5px solid #9d7166;
+    background-color: #9d7166;
+    float: right; /* Alinha o link à direita */
+    border-radius: 3px;
+    
+}
+        header {
+            background: transparent; /* Removendo o fundo azul */
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .chat-section {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        #messages-container {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .message {
+            margin: 5px 0;
+        }
+        .message strong {
+            display: block;
+        }
+        #users-container {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        input[type="text"], textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #846f5e; /* Cor do botão */
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #9d7166; /* Cor do botão ao passar o mouse */
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: white; /* Cor do texto do rodapé */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../home/Home.html">HOME</a>
+        <h1>Chat da Equipe</h1>
+    </header>
+
+    <main>
+        <div class="chat-section">
+            <div id="users-container">
+                <strong>Usuários Online:</strong>
+                <div id="user-list"></div>
+            </div>
+            <div id="messages-container">
+                <!-- Mensagens aparecerão aqui -->
+            </div>
+
+            <input type="text" id="name" placeholder="Seu Nome" required>
+            <textarea id="message" placeholder="Digite sua mensagem..." required></textarea>
+            <button id="send">Enviar</button>
+        </div>
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <script>
+        const messagesContainer = document.getElementById('messages-container');
+        const userList = document.getElementById('user-list');
+        const nameInput = document.getElementById('name');
+        const messageInput = document.getElementById('message');
+        const sendButton = document.getElementById('send');
+
+        // Simulação de usuários online
+        const users = new Set();
+
+        function updateUserList() {
+            userList.innerHTML = '';
+            users.forEach(user => {
+                const userItem = document.createElement('div');
+                userItem.textContent = user;
+                userList.appendChild(userItem);
+            });
+        }
+
+        // Adiciona o usuário à lista
+        nameInput.addEventListener('change', () => {
+            const name = nameInput.value.trim();
+            if (name) {
+                users.add(name);
+                updateUserList();
+            }
+        });
+
+        sendButton.addEventListener('click', () => {
+            const name = nameInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (name && message) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message');
+                messageElement.innerHTML = `<strong>${name}:</strong> ${message}`;
+                messagesContainer.appendChild(messageElement);
+
+                // Limpar os campos
+                messageInput.value = '';
+                nameInput.value = ''; // Limpa o campo de nome
+                messagesContainer.scrollTop = messagesContainer.scrollHeight; // Rolar para o fundo
+            } else {
+                alert('Por favor, preencha seu nome e a mensagem.');
+            }
+        });
+    </script>
+</body>
+</html>

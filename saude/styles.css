@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #d8b4c9, #b28e6c, #846f5e, #9d7166);
+    color: #333;
+    overflow-x: hidden; /* Oculta a barra de rolagem horizontal, se ainda aparecer */
+}
+
+.homes {
+    color: #f5eceb; /* Define a cor do texto */
+    text-decoration: none; /* Remove o sublinhado */
+    border: 5px solid #9d7166;
+    background-color: #9d7166;
+    float: right; /* Alinha o link à direita */
+    border-radius: 3px;
+    
+}
+
+header {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Ajustes na media-container para vídeos lado a lado */
+.media-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a linha seguinte */
+    gap: 10px; /* Espaço entre os vídeos */
+    justify-content: center; /* Centraliza os vídeos */
+}
+
+video {
+    flex: 1 1 calc(50% - 10px); /* Permite que os vídeos ocupem 50% do espaço disponível */
+    max-width: 350px; /* Limite de largura para vídeos */
+    height: 200px; /* Definindo uma altura fixa */
+    object-fit: cover; /* Faz o vídeo cobrir a área sem distorcer */
+}
+
+audio {
+    width: 100%;
+    max-width: 350px; /* Limite de largura para áudios */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

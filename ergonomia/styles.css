@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #d8b4c9, #b28e6c, #846f5e, #9d7166);
+    color: #333;
+}
+
+.homes {
+    
+        color: #f5eceb; /* Define a cor do texto */
+        text-decoration: none; /* Remove o sublinhado */
+        border: 5px solid #9d7166;
+        background-color: #9d7166;
+        float: right; /* Alinha o link à direita */
+        border-radius: 3px;
+        
+    
+}
+
+header {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ergonomia-image {
+    max-width: 100%; /* A imagem não excederá a largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block; /* Garante que a imagem seja um bloco, ocupando toda a largura disponível */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+}

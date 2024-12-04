@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">   
+    <title>Trilha da Capacitação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #846f5e;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .container {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #f2f2f2;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #f2f2f2;
+        }
+        .course-item {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .course-item:hover {
+            transform: scale(1.05);
+            background-color: #f9f9f9;
+        }
+        .back-button {
+            background-color: #846f5e;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #745c4b;
+        }
+        .employee-item {
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 5px 0;
+            transition: background-color 0.3s;
+        }
+        .employee-item:hover {
+            background-color: #f1f1f1;
+        }
+
+        a {
+          
+           text-decoration: none; /* Remove o sublinhado */
+           border: 2px solid;
+     }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Trilha da Capacitação</h1>
+        <nav>
+            <ul>
+                <li><a href="#detalhes">Detalhes do Treinamento</a></li>
+                <li><a href="#pontuacoes">Pontuações</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="detalhes" class="container">
+            <h2>Detalhes do Treinamento</h2>
+            <button class="back-button" onclick="window.location.href='#pontuacoes'">Voltar para Pontuações</button>
+            <a href="../home/Home.html" class="back-button">Home</a>
+            <h3>Treinamentos disponíveis na plataforma Elevate 158:</h3>
+            <div class="course-item">
+                <h4><strong>Libras (Língua Brasileira de Sinais)</strong></h4>
+                <p>Carga horária sugerida: 40 horas</p>
+                <p>Objetivos: Capacitar os recepcionistas a se comunicarem com pacientes surdos ou com deficiência auditiva.</p>
+                <p>Conteúdo: Introdução à Libras, sinais básicos para a recepção hospitalar, prática de diálogos em situações comuns no ambiente hospitalar, exercícios práticos.</p>
+            </div>
+
+            <div class="course-item">
+                <h4><strong>Atendimento Humanizado</strong></h4>
+                <p>Carga horária sugerida: 20 horas</p>
+                <p>Objetivos: Ensinar técnicas de comunicação empática e acolhedora para melhorar o atendimento aos pacientes.</p>
+                <p>Conteúdo: Princípios do atendimento humanizado, ética e respeito ao paciente, técnicas de comunicação não-violenta.</p>
+            </div>
+
+            <div class="course-item">
+                <h4><strong>Inclusão Social</strong></h4>
+                <p>Carga horária sugerida: 30 horas</p>
+                <p>Objetivos: Capacitar os recepcionistas a atenderem pacientes com necessidades especiais, promovendo inclusão e acessibilidade.</p>
+                <p>Conteúdo: Deficiências visuais e auditivas: comunicação e suporte, ferramentas de acessibilidade no ambiente hospitalar.</p>
+            </div>
+
+            <div class="course-item">
+                <h4><strong>APH (Atendimento Pré-Hospitalar)</strong></h4>
+                <p>Carga horária sugerida: 60 horas</p>
+                <p>Objetivos: Oferecer noções básicas de primeiros socorros para capacitar os recepcionistas a atuarem em emergências.</p>
+                <p>Conteúdo: Suporte básico de vida, atendimento a situações de trauma, protocolos de emergência.</p>
+            </div>
+
+            <div class="course-item">
+                <h4><strong>Línguas Estrangeiras</strong></h4>
+                <p>Carga horária sugerida: 40 horas (nível básico)</p>
+                <p>Objetivos: Capacitar os recepcionistas a se comunicarem de forma básica com pacientes estrangeiros.</p>
+                <p>Conteúdo: Frases e expressões úteis no atendimento hospitalar, vocabulário específico para o ambiente de saúde.</p>
+            </div>
+
+            <p>Essas capacitações devem ter avaliações finais, como testes teóricos e práticos, para garantir que o conhecimento foi devidamente absorvido e aplicado.</p>
+        </section>
+
+        <section id="pontuacoes" class="container">
+            <h2>Pontuações dos Funcionários</h2>
+            <div id="employeeList"></div>
+            <div id="employeeDetails" style="display: none;">
+                <h3>Detalhes do Funcionário</h3>
+                <div id="completedCourses"></div>
+                <button class="back-button" onclick="backToEmployeeList()">Voltar para Funcionários</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <script>
+        const employees = [
+            { name: "Adriana", id: 1, scores: 75, courses: [] },
+            { name: "Débora", id: 2, scores: 85, courses: ["Libras", "Atendimento Humanizado"] },
+            { name: "Márcio", id: 3, scores: 90, courses: ["Libras", "APH"] },
+            { name: "Ana Cláudia", id: 4, scores: 65, courses: ["Inclusão Social", "Línguas Estrangeiras"] },
+            { name: "Jaqueline", id: 5, scores: 80, courses: ["Atendimento Humanizado", "APH", "Línguas Estrangeiras"] },
+        ];
+
+        // Renderiza a lista de funcionários
+        function renderEmployeeList() {
+            const employeeList = document.getElementById("employeeList");
+            employeeList.innerHTML = "";
+            employees.forEach((employee) => {
+                const div = document.createElement("div");
+                div.className = "employee-item";
+                div.textContent = `${employee.name} - Matrícula: ${employee.id} - Pontuação: ${employee.scores}`;
+                div.onclick = () => showEmployeeCourses(employee);
+                employeeList.appendChild(div);
+            });
+        }
+
+        // Mostra os cursos completados pelo funcionário
+        function showEmployeeCourses(employee) {
+            document.getElementById("employeeList").style.display = "none";
+            document.getElementById("employeeDetails").style.display = "block";
+            const completedCourses = document.getElementById("completedCourses");
+            completedCourses.innerHTML = `<h4>Cursos Completados por ${employee.name}:</h4>`;
+            if (employee.courses.length === 0) {
+                completedCourses.innerHTML += "<p>Nenhum curso completado.</p>";
+            } else {
+                employee.courses.forEach(course => {
+                    completedCourses.innerHTML += `<p>${course}</p>`;
+                });
+            }
+        }
+
+        // Volta para a lista de funcionários
+        function backToEmployeeList() {
+            document.getElementById("employeeList").style.display = "block";
+            document.getElementById("employeeDetails").style.display = "none";
+        }
+
+        // Inicializa a lista de funcionários ao carregar a página
+        renderEmployeeList();
+    </script>
+</body>
+</html>

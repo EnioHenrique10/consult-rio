@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Agendamento</title>
+    <link rel="stylesheet" href="agenda.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../home/Home.html" class="back-button">Home</a>
+        <h1>Agendamentos de consultas e exames</h1>
+        
+        <form id="appointmentForm">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="date">Data:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Hora:</label>
+            <input type="time" id="time" name="time" required>
+
+            <button type="submit">Agendar</button>
+        </form>
+        <div id="confirmation" class="hidden"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

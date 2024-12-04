@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Dashboard de Desempenho</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <a class="homes" href="../home/Home.html">Home</a>
+        <h1>Controle e Progresso</h1>
+    </header>
+
+    <main>
+        <section class="chart-container">
+            <canvas id="performanceChart"></canvas>
+        </section>
+
+        <section class="table-container">
+            <h2>Desempenho dos Funcionários</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Matrícula</th>
+                        <th>Desempenho (%)</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTableBody">
+                    <!-- Os dados serão inseridos aqui via JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
